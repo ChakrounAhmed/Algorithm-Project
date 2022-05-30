@@ -1,0 +1,32 @@
+ALGORITHM Checkpoint_Algorithms_and_its_element
+VAR
+    l, w : INTEGER:= 1;
+    v : INTEGER:=0;
+    i, j : INTEGER;
+    phrase : STRING;
+    vowels : ARRAY_OF CHAR[6] ; 
+BEGIN
+    Write("Entrez une phrase qui se termine par un point s'il vous plait : ");
+    Read(phrase);
+
+    FOR i FROM 0 TO phrase.length-1 STEP step 1 DO 
+        IF phrase[i] <> "." THEN
+            l := l +1 ;
+        ELSE
+            break ;
+        END_IF
+        IF phrase[i] = " "   THEN
+            w := w + 1 ;
+        END_IF
+        vowels := {"a","e", "i","o", "u", "y"}
+        FOR j FROM 0 TO  vowels.length-1 STEP step 1 DO
+            IF phrase[i] = vowels[j] THEN
+                v := v+1 ;
+            END_IF
+        END_FOR
+    END_FOR
+    
+    Write("The length of the sentence  : ", l)
+    Write("The number of words in the sentence :", w)
+    Write("The number of vowels in the sentence :", v)
+END
